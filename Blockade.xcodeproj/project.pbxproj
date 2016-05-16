@@ -8,24 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		E5F3D4591CDA5C9400BB6C48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F3D4581CDA5C9400BB6C48 /* AppDelegate.swift */; };
-		E5F3D45B1CDA5C9400BB6C48 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = E5F3D45A1CDA5C9400BB6C48 /* GameScene.sks */; };
 		E5F3D45D1CDA5C9400BB6C48 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F3D45C1CDA5C9400BB6C48 /* GameScene.swift */; };
 		E5F3D45F1CDA5C9400BB6C48 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F3D45E1CDA5C9400BB6C48 /* GameViewController.swift */; };
 		E5F3D4621CDA5C9400BB6C48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F3D4601CDA5C9400BB6C48 /* Main.storyboard */; };
 		E5F3D4641CDA5C9400BB6C48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5F3D4631CDA5C9400BB6C48 /* Assets.xcassets */; };
 		E5F3D4671CDA5C9400BB6C48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F3D4651CDA5C9400BB6C48 /* LaunchScreen.storyboard */; };
+		E5F3D46F1CDA5CD200BB6C48 /* textures.atlas in Resources */ = {isa = PBXBuildFile; fileRef = E5F3D46E1CDA5CD200BB6C48 /* textures.atlas */; };
+		E5F3D4711CDA5CDC00BB6C48 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F3D4701CDA5CDC00BB6C48 /* Ball.swift */; };
+		E5F3D4731CDA6A1200BB6C48 /* Paddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F3D4721CDA6A1200BB6C48 /* Paddle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E5F3D4551CDA5C9400BB6C48 /* Blockade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blockade.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F3D4581CDA5C9400BB6C48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E5F3D45A1CDA5C9400BB6C48 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		E5F3D45C1CDA5C9400BB6C48 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		E5F3D45E1CDA5C9400BB6C48 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		E5F3D4611CDA5C9400BB6C48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E5F3D4631CDA5C9400BB6C48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5F3D4661CDA5C9400BB6C48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E5F3D4681CDA5C9400BB6C48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5F3D46E1CDA5CD200BB6C48 /* textures.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = textures.atlas; sourceTree = "<group>"; };
+		E5F3D4701CDA5CDC00BB6C48 /* Ball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
+		E5F3D4721CDA6A1200BB6C48 /* Paddle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paddle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,11 +63,13 @@
 			isa = PBXGroup;
 			children = (
 				E5F3D4581CDA5C9400BB6C48 /* AppDelegate.swift */,
-				E5F3D45A1CDA5C9400BB6C48 /* GameScene.sks */,
-				E5F3D45C1CDA5C9400BB6C48 /* GameScene.swift */,
 				E5F3D45E1CDA5C9400BB6C48 /* GameViewController.swift */,
-				E5F3D4601CDA5C9400BB6C48 /* Main.storyboard */,
+				E5F3D45C1CDA5C9400BB6C48 /* GameScene.swift */,
+				E5F3D4701CDA5CDC00BB6C48 /* Ball.swift */,
+				E5F3D4721CDA6A1200BB6C48 /* Paddle.swift */,
 				E5F3D4631CDA5C9400BB6C48 /* Assets.xcassets */,
+				E5F3D46E1CDA5CD200BB6C48 /* textures.atlas */,
+				E5F3D4601CDA5C9400BB6C48 /* Main.storyboard */,
 				E5F3D4651CDA5C9400BB6C48 /* LaunchScreen.storyboard */,
 				E5F3D4681CDA5C9400BB6C48 /* Info.plist */,
 			);
@@ -102,6 +108,7 @@
 				TargetAttributes = {
 					E5F3D4541CDA5C9400BB6C48 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = SK69P8BDBF;
 					};
 				};
 			};
@@ -128,8 +135,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5F3D45B1CDA5C9400BB6C48 /* GameScene.sks in Resources */,
 				E5F3D4671CDA5C9400BB6C48 /* LaunchScreen.storyboard in Resources */,
+				E5F3D46F1CDA5CD200BB6C48 /* textures.atlas in Resources */,
 				E5F3D4641CDA5C9400BB6C48 /* Assets.xcassets in Resources */,
 				E5F3D4621CDA5C9400BB6C48 /* Main.storyboard in Resources */,
 			);
@@ -142,7 +149,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5F3D4711CDA5CDC00BB6C48 /* Ball.swift in Sources */,
 				E5F3D45D1CDA5C9400BB6C48 /* GameScene.swift in Sources */,
+				E5F3D4731CDA6A1200BB6C48 /* Paddle.swift in Sources */,
 				E5F3D45F1CDA5C9400BB6C48 /* GameViewController.swift in Sources */,
 				E5F3D4591CDA5C9400BB6C48 /* AppDelegate.swift in Sources */,
 			);
@@ -257,10 +266,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Blockade/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kyleJohnson.Blockade;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -268,10 +280,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Blockade/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kyleJohnson.Blockade;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -294,6 +309,7 @@
 				E5F3D46D1CDA5C9400BB6C48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

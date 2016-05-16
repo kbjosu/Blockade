@@ -2,44 +2,101 @@
 //  GameScene.swift
 //  Blockade
 //
-//  Created by Kyle Johnson on 5/4/16.
+//  Created by Kyle Johnson on 4/25/16.
 //  Copyright (c) 2016 Kyle Johnson. All rights reserved.
 //
 
 import SpriteKit
 
+let SCENE_WIDTH: CGFloat = 1242
+let SCENE_HEIGHT: CGFloat = 2208
+
 class GameScene: SKScene {
-    override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!"
-        myLabel.fontSize = 45
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
-        
-        self.addChild(myLabel)
-    }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-       /* Called when a touch begins */
-        
-        for touch in touches {
-            let location = touch.locationInNode(self)
-            
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
-            
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
+    var ball: Ball!
+    var paddle: Paddle!
+    var lastTouch: CGPoint?
+    
+    override init() {
+        super.init(size: CGSize(width: SCENE_WIDTH, height: SCENE_HEIGHT))
+        if let scene = self.scene {
+            scene.physicsBody = SKPhysicsBody(edgeLoopFromRect: scene.frame)
+            if let body = self.physicsBody {
+                body.friction = 0
+            } else {
+                print("Scene physics body not initialized")
+            }
+        } else {
+            print("Scene not initialized")
         }
     }
-   
+    
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func didMoveToView(view: SKView) {
+        /* Setup your scene here */
+        
+        self.createContents()
+        
+    }
+    
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+         for touch in touches {
+            let location = touch.locationInNode(self)
+            lastTouch = location
+         }
+    }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        for touch in touches {
+            let location = touch.locationInNode(self)
+            lastTouch = location
+        }
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        lastTouch = nil
+    }
+    
     override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+        if let location = lastTouch {
+            paddle.move(location)
+        } else {
+            paddle.stop()
+        }
+        
+        if ball.position.y < SCENE_HEIGHT / 12 {
+            stopGame()
+        }
+    }
+    
+    func stopGame() {
+        self.restartGame()
+    }
+    
+    func restartGame() {
+        self.removeAllChildren()
+        self.removeAllActions()
+        self.createContents()
+    }
+    
+    func createContents() {
+        if let background: SKSpriteNode = SKSpriteNode(imageNamed: "background") {
+            background.size = CGSize(width: SCENE_WIDTH, height: SCENE_HEIGHT)
+            background.position = CGPoint(x: SCENE_WIDTH / 2, y: SCENE_HEIGHT / 2)
+            self.addChild(background)
+        } else {
+            print("background not initializing")
+        }
+        
+        paddle = Paddle()
+        addChild(paddle)
+        
+        ball = Ball()
+        addChild(ball)
     }
 }
