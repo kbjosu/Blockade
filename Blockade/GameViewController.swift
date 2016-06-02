@@ -31,7 +31,18 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate {
         
         skView.presentScene(scene)
      
-        authenticateLocalPlayer()
+        self.authenticateLocalPlayer()
+        let leaderboardID = "LeaderboardID"
+        let sScore = GKScore(leaderboardIdentifier: leaderboardID)
+        sScore.value = Int64(1)
+        //let localPlayer: GKLocalPlayer = GKLocalPlayer.localPlayer()
+        GKScore.reportScores([sScore], withCompletionHandler: { (error: NSError?) -> Void in
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+                print("Score submitted")
+            }
+        })
     }
     
     override func shouldAutorotate() -> Bool {
@@ -65,17 +76,6 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate {
             } else if (localPlayer.authenticated) {
                 // 2 Player is already euthenticated & logged in, load game center
                 self.gcEnabled = true
-                
-                // Get the default leaderboard ID
-                localPlayer.loadDefaultLeaderboardIdentifierWithCompletionHandler({ (leaderboardIdentifer: String?, error: NSError?) -> Void in
-                    if error != nil {
-                        print(error)
-                    } else {
-                        self.gcDefaultLeaderBoard = leaderboardIdentifer!
-                    }
-                })
-                
-                
             } else {
                 // 3 Game center is not enabled on the users device
                 self.gcEnabled = false
@@ -84,6 +84,10 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate {
             }
             
         }
+        
+    }
+    
+    func updateLeaderboard() {
         
     }
 }

@@ -75,6 +75,7 @@ class GameScene: SKScene {
     }
     
     func stopGame() {
+        
         self.removeAllChildren()
         self.removeAllActions()
         let scene = Menu()
