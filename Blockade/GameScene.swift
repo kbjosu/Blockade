@@ -27,7 +27,7 @@ class GameScene: SKScene {
                 print("Scene physics body not initialized")
             }
         } else {
-            print("Scene not initialized")
+            print("Game scene not initialized")
         }
     }
     
@@ -69,22 +69,24 @@ class GameScene: SKScene {
             paddle.stop()
         }
         
-        if ball.position.y < SCENE_HEIGHT / 12 {
+        if ball.position.y < SCENE_HEIGHT / 20 {
             stopGame()
         }
     }
     
     func stopGame() {
-        self.restartGame()
-    }
-    
-    func restartGame() {
         self.removeAllChildren()
         self.removeAllActions()
-        self.createContents()
+        let scene = Menu()
+        let menuView = view! as SKView
+        menuView.showsFPS = true
+        menuView.showsNodeCount = true
+        menuView.ignoresSiblingOrder = false
+        scene.scaleMode = .AspectFill
+        menuView.presentScene(scene)
     }
     
-    func createContents() {
+    private func createContents() {
         if let background: SKSpriteNode = SKSpriteNode(imageNamed: "background") {
             background.size = CGSize(width: SCENE_WIDTH, height: SCENE_HEIGHT)
             background.position = CGPoint(x: SCENE_WIDTH / 2, y: SCENE_HEIGHT / 2)

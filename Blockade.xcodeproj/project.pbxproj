@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E52B41951CFF52D2007BE183 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52B41941CFF52D2007BE183 /* GameKit.framework */; };
+		E52B41971CFF5870007BE183 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52B41961CFF5870007BE183 /* Menu.swift */; };
 		E5F3D4591CDA5C9400BB6C48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F3D4581CDA5C9400BB6C48 /* AppDelegate.swift */; };
 		E5F3D45D1CDA5C9400BB6C48 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F3D45C1CDA5C9400BB6C48 /* GameScene.swift */; };
 		E5F3D45F1CDA5C9400BB6C48 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F3D45E1CDA5C9400BB6C48 /* GameViewController.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E52B41941CFF52D2007BE183 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		E52B41961CFF5870007BE183 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		E5F3D4551CDA5C9400BB6C48 /* Blockade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blockade.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F3D4581CDA5C9400BB6C48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5F3D45C1CDA5C9400BB6C48 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -37,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E52B41951CFF52D2007BE183 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +51,7 @@
 		E5F3D44C1CDA5C9300BB6C48 = {
 			isa = PBXGroup;
 			children = (
+				E52B41941CFF52D2007BE183 /* GameKit.framework */,
 				E5F3D4571CDA5C9400BB6C48 /* Blockade */,
 				E5F3D4561CDA5C9400BB6C48 /* Products */,
 			);
@@ -64,6 +70,7 @@
 			children = (
 				E5F3D4581CDA5C9400BB6C48 /* AppDelegate.swift */,
 				E5F3D45E1CDA5C9400BB6C48 /* GameViewController.swift */,
+				E52B41961CFF5870007BE183 /* Menu.swift */,
 				E5F3D45C1CDA5C9400BB6C48 /* GameScene.swift */,
 				E5F3D4701CDA5CDC00BB6C48 /* Ball.swift */,
 				E5F3D4721CDA6A1200BB6C48 /* Paddle.swift */,
@@ -108,7 +115,12 @@
 				TargetAttributes = {
 					E5F3D4541CDA5C9400BB6C48 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = SK69P8BDBF;
+						DevelopmentTeam = TMSFC6E45M;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -149,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E52B41971CFF5870007BE183 /* Menu.swift in Sources */,
 				E5F3D4711CDA5CDC00BB6C48 /* Ball.swift in Sources */,
 				E5F3D45D1CDA5C9400BB6C48 /* GameScene.swift in Sources */,
 				E5F3D4731CDA6A1200BB6C48 /* Paddle.swift in Sources */,
@@ -269,8 +282,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Blockade/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kyleJohnson.Blockade;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kylejohnsondev.Blockade;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -283,8 +297,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Blockade/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kyleJohnson.Blockade;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kylejohnsondev.Blockade;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
