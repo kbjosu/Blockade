@@ -13,7 +13,7 @@ class Menu: SKScene {
     var playButton: SKSpriteNode!
     
     override init() {
-        super.init(size: CGSize(width: SCENE_WIDTH, height: SCENE_HEIGHT))
+        super.init(size: CGSize(width: SceneWidth, height: SceneHeight))
         self.createContents()
     }
     
@@ -27,15 +27,15 @@ class Menu: SKScene {
     
     private func createContents() {
         if let background: SKSpriteNode = SKSpriteNode(imageNamed: "background") {
-            background.size = CGSize(width: SCENE_WIDTH, height: SCENE_HEIGHT)
-            background.position = CGPoint(x: SCENE_WIDTH / 2, y: SCENE_HEIGHT / 2)
+            background.size = CGSize(width: SceneWidth, height: SceneHeight)
+            background.position = CGPoint(x: SceneWidth / 2, y: SceneHeight / 2)
             self.addChild(background)
         } else {
             print("background not initializing")
         }
         
-        playButton = SKSpriteNode(color: SKColor.greenColor(), size: CGSizeMake(SCENE_WIDTH / 4, SCENE_HEIGHT / 10))
-        playButton.position = CGPoint(x: SCENE_WIDTH / 2, y: SCENE_HEIGHT / 2)
+        playButton = SKSpriteNode(color: SKColor.greenColor(), size: CGSizeMake(SceneWidth / 4, SceneHeight / 10))
+        playButton.position = CGPoint(x: SceneWidth / 2, y: SceneHeight / 2)
         addChild(playButton)
     }
     

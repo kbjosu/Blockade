@@ -40,7 +40,7 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate {
             if error != nil {
                 print(error!.localizedDescription)
             } else {
-                print("Score submitted")
+                print("score submitted")
             }
         })
     }

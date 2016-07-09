@@ -9,38 +9,44 @@
 import Foundation
 import SpriteKit
 
-let BALL_TEXTURE: SKTexture = SKTexture(imageNamed: "ball")
-let BALL_RADIUS: CGFloat = 50
-let BALL_SPEED: CGFloat = 1000
-
 class Ball: SKSpriteNode {
     
+    static let Category: UInt32 = 0x1 << 1
+    let Radius: CGFloat = 50
+    let Speed: CGFloat = 1000
+    
     init() {
-        super.init(texture: BALL_TEXTURE, color: SKColor.clearColor(), size: CGSizeMake(BALL_RADIUS * 2, BALL_RADIUS * 2))
-        setPosition()
-        setPhysics()
+        if let Texture: SKTexture = SKTexture(imageNamed: "ball") {
+            super.init(texture: Texture, color: SKColor.blackColor(), size: Texture.size())
+            self.position.x = SceneWidth / 2
+            self.position.y = SceneHeight / 2
+            self.name = "ball node"
+            setPhysics()
+        } else {
+            super.init()
+            print("invalid ball texture")
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setPosition() {
-        self.position.x = SCENE_WIDTH / 2
-        self.position.y = SCENE_HEIGHT / 2
-    }
-    
     private func setPhysics() {
-        self.physicsBody = SKPhysicsBody(circleOfRadius: BALL_RADIUS)
+        self.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width / 2)
         if let body = self.physicsBody {
+            body.usesPreciseCollisionDetection = true
+            body.categoryBitMask = Ball.Category
+            body.collisionBitMask = Ball.Category | Paddle.Category | GameScene.WallCategory
+            body.contactTestBitMask = Paddle.Category | Ball.Category
             body.affectedByGravity = false
-            body.restitution = 1.0  //"bounciness" of ball
+            body.restitution = 1  //"bounciness" of ball
             body.allowsRotation = true
             body.angularDamping = 0
             body.linearDamping = 0
             body.friction = 0
             body.velocity = randomVelocity()
-            body.mass = 0
+            body.mass = 1
         } else {
             print("Ball physics body not initialized")
         }
@@ -60,8 +66,8 @@ class Ball: SKSpriteNode {
         }
         else if decider == 1 {
          */
-            dx = cos(CGFloat(arc4random_uniform(91) + 225) * CGFloat(M_PI / 180)) * BALL_SPEED
-            dy = sin(CGFloat(arc4random_uniform(91) + 225) * CGFloat(M_PI / 180)) * BALL_SPEED
+            dx = cos(CGFloat(arc4random_uniform(91) + 225) * CGFloat(M_PI / 180)) * Speed
+            dy = sin(CGFloat(arc4random_uniform(91) + 225) * CGFloat(M_PI / 180)) * Speed
         //}
         return CGVectorMake(dx, dy)
     }
